@@ -64,7 +64,7 @@ Attach both the containers in the same network, so that they can communicate wit
 i) MySQL container:
 
    docker run -d --name mysql -v mysql-data:/var/lib/mysql -v ./message.sql:/docker-entrypoint-initdb.d/message.sql --network=twotier -e MYSQL_DATABASE=mydb
-   -e MYSQL_USER=root -e MYSQL_PASSWORD=admin -e MYSQL_ROOT_PASSWORD="admin" -p 3360:3360 mysql:5.7
+   -e MYSQL_USER=root -e MYSQL_PASSWORD=admin -e MYSQL_ROOT_PASSWORD="admin" -p 3306:3306 mysql:5.7
 
 ii) Backend container:
 
