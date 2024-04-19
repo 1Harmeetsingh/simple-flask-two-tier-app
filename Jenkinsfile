@@ -9,6 +9,7 @@ pipeline {
         }
         stage("Build & Test"){
             steps{
+                sh "sudo chown $USER /var/run/docker.sock"
                 sh "docker build . -t flaskapp"
             }
         }
