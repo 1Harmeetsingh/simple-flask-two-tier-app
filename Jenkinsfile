@@ -4,11 +4,13 @@ pipeline {
     stages{
         stage("Code"){
             steps{
-                git url: "https://github.com/1Harmeetsingh/simple-flask-two-tier-app.git", branch: "jenkins"
+                git url: "https://github.com/1Harmeetsingh/simple-flask-two-tier-app.git", branch: "main"
             }
         }
         stage("Build & Test"){
             steps{
+                sh "sudo apt install docker.io"
+                sh "sudo apt install docker-compose"
                 sh "sudo -S chown $USER /var/run/docker.sock"
                 sh "docker build . -t flaskapp"
             }
