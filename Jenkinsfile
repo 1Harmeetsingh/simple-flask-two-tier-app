@@ -16,8 +16,8 @@ pipeline {
             steps{
                 withCredentials([usernamePassword(credentialsId:"dockerHub",passwordVariable:"dockerHubPass",usernameVariable:"dockerHubUser")]){
                     sh "docker login -u ${env.dockerHubUser} -p ${env.dockerHubPass}"
-                    sh "docker tag flaskapp ${env.dockerHubUser}/flaskapp:latest"
-                    sh "docker push ${env.dockerHubUser}/flaskapp:latest" 
+                    sh "docker tag flaskapp ${env.dockerHubUser}/simple-flask-two-tier-app:latest"
+                    sh "docker push ${env.dockerHubUser}/simple-flask-two-tier-app:latest" 
                 }
             }
         }
